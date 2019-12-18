@@ -26,6 +26,7 @@ class UsersCanCreateStatusesTest extends DuskTestCase
                     ->type('body', 'Mi primer status')
                     ->press('#createStatus')
                     ->screenshot('create-status')
+                    ->waitForText('Mi primer status')
                     ->assertSee('Mi primer status');
         });
     }

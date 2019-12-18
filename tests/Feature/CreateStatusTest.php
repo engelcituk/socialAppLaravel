@@ -9,9 +9,10 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class CreateStatusTest extends TestCase
 {
+
     use RefreshDatabase;
     /**@test  */
-    function test_guestsUsersCanNotCreateStatuses()
+    function guestsUsersCanNotCreateStatuses()
     {
 
         $response = $this->post(route('statuses.store'),['body'=>'mi primer status']);
@@ -19,7 +20,7 @@ class CreateStatusTest extends TestCase
         $response->assertRedirect('login');
     }
     /**@test*/
-    public function test_anAuthenticatedUserCanCreateStatuses()
+    public function anAuthenticatedUserCanCreateStatuses()
     {
         $this->withExceptionHandling();
         //1. given => teniendo un usuario autenticado
@@ -39,21 +40,22 @@ class CreateStatusTest extends TestCase
         ]);
 
     }
+    /**@test*/
+    function StatusRequireABody(){
 
-     function test_aStatusRequireABody(){
+        $user = factory(User::class)->create();
+        $this->actingAs($user);
 
-         $user = factory(User::class)->create();
-         $this->actingAs($user);
+        $response = $this->postJson(route('statuses.store'),['body'=>'']);
 
-         $response = $this->postJson(route('statuses.store'),['body'=>'']);
+        $response->assertStatus(422);
 
-         $response->assertStatus(422);
-
-         $response->assertJsonStructure([
-             'message', 'errors' => ['body']
-         ]);
-     }
-    function test_aStatusBodyRequiresRequiresAMinimumLength(){
+        $response->assertJsonStructure([
+            'message', 'errors' => ['body']
+        ]);
+    }
+    /**@test*/
+    function StatusBodyRequiresRequiresAMinimumLength(){
 
         $user = factory(User::class)->create();
         $this->actingAs($user);
@@ -66,5 +68,6 @@ class CreateStatusTest extends TestCase
             'message', 'errors' => ['body']
         ]);
     }
+
 
 }
