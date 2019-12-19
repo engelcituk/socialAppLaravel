@@ -49745,7 +49745,7 @@ exports = module.exports = __webpack_require__(11)(false);
 
 
 // module
-exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
+exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", ""]);
 
 // exports
 
@@ -49756,6 +49756,17 @@ exports.push([module.i, "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -49794,12 +49805,45 @@ var render = function() {
   return _c(
     "div",
     _vm._l(_vm.statuses, function(status) {
-      return _c("div", { domProps: { textContent: _vm._s(status.body) } })
+      return _c("div", { staticClass: "card border-0 mb-3 shadow-sm" }, [
+        _c("div", { staticClass: "card-body d-flex flex-column" }, [
+          _vm._m(0, true),
+          _vm._v(" "),
+          _c("p", {
+            staticClass: "card-text text-secondary",
+            domProps: { textContent: _vm._s(status.body) }
+          })
+        ])
+      ])
     }),
     0
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: " d-flex align-items-center mb-3" }, [
+      _c("img", {
+        staticClass: "rounded mr-3 shadow-sm",
+        attrs: {
+          width: "40px",
+          src: "https://aprendible.com/images/default-avatar.jpg",
+          alt: ""
+        }
+      }),
+      _vm._v(" "),
+      _c("div", {}, [
+        _c("h5", { staticClass: "mb-1" }, [_vm._v(" Cituk Caamal")]),
+        _vm._v(" "),
+        _c("div", { staticClass: "small text-muted" }, [
+          _vm._v(" Hace una hora")
+        ])
+      ])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
